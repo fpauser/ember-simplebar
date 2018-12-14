@@ -1,13 +1,13 @@
 {
   "name": "ember-simplebar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Custom scrollbar component using SimpleBar",
   "keywords": [
     "ember-addon"
   ],
-  "repository": "",
+  "repository": "https://github.com/fpauser/ember-simplebar",
   "license": "MIT",
-  "author": "",
+  "author": "Falk Pauser",
   "directories": {
     "doc": "doc",
     "test": "tests"
