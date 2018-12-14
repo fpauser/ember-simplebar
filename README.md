@@ -1,7 +1,8 @@
 ember-simplebar
 ==============================================================================
 
-[Short description of the addon.]
+Ember Simplebar is a custom scrollbar component that wraps [SimpleBar](https://github.com/Grsmto/simplebar).
+
 
 Installation
 ------------------------------------------------------------------------------
@@ -14,7 +15,11 @@ ember install ember-simplebar
 Usage
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
+```
+<SimpleBar>
+  ...
+</SimpleBar>
+```
 
 
 License
