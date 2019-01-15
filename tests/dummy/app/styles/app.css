@@ -1,0 +1,30 @@
+h1 {
+  color: #313131;
+  margin: 0 0 25px 0;
+}
+
+.container {
+  width: 400px;
+  margin: 100px auto;
+
+  padding: 20px 30px;
+  border: 10px solid #313131;
+
+
+  font-size: 14px;
+  font-family: sans-serif;
+  color: #aaa;
+}
+
+.content {
+  height: 400px;
+  overflow: hidden;
+}
+
+.content p:first-of-type {
+  margin-top: 0;
+}
+
+.content p:last-of-type {
+  margin-bottom: 0;
+}
