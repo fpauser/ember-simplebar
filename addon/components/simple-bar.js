@@ -8,13 +8,20 @@ export default Component.extend({
 
   dataSimplebar: undefined,
 
-  autoHide: true,
-  forceVisible: false,
+  didReceiveAttrs() {
+    // Grab any component parameters
+    const { autoHide, forceVisible, sbClassNames, scrollbarMinSize, scrollbarMaxSize, timeout } = this.getProperties('autoHide', 'forceVisible', 'sbClassNames', 'scrollbarMinSize', 'scrollbarMaxSize', 'timeout')
+    //  Assign them to an object
+    const options = { autoHide, forceVisible, sbClassNames, scrollbarMinSize, scrollbarMaxSize, timeout }
+    // Filter out undefined
+    Object.keys(options).forEach(key => { if (typeof options[key] === 'undefined') delete options[key] });
+    // Set options object on the component
+    this.set('options', options);
+  },
 
   didInsertElement() {
-    const { autoHide, forceVisible } = this;
-    this.sb = new SimpleBar(this.element, {
-      autoHide, forceVisible
-    });
+    const options = this.get('options');
+    // Send any options to the SimpleBar constructor
+    this.sb = new SimpleBar(this.element, {...options});
   }
 });

@@ -1,6 +1,12 @@
 'use strict';
 
 module.exports = {
+  options: {
+    babel: {
+      plugins: ['transform-object-rest-spread']
+    }
+  },
+  
   name: require('./package').name,
 
   included(app) {
