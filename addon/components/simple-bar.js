@@ -1,9 +1,7 @@
 import Component from '@ember/component';
-import layout from '../templates/components/simple-bar';
 import SimpleBar from 'simplebar';
 
 export default Component.extend({
-  layout,
   attributeBindings: ['data-simplebar'],
 
   dataSimplebar: undefined,
@@ -20,8 +18,15 @@ export default Component.extend({
   },
 
   didInsertElement() {
-    const options = this.get('options');
+    const {options, disabled} = this.getProperties('options', 'disabled');
     // Send any options to the SimpleBar constructor
-    this.sb = new SimpleBar(this.element, {...options});
+    // Do not create an instance if disabled boolean is true
+    if (!disabled) this.sb = new SimpleBar(this.element, {...options});
+  },
+
+  willDestroyElement() {
+    const disabled = this.get('disabled');
+    this._super(...arguments);
+    if (!disabled) this.sb.unMount();
   }
 });
