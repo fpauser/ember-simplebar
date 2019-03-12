@@ -10,7 +10,7 @@ export default Component.extend({
     // Grab any component parameters
     const { autoHide, forceVisible, sbClassNames, scrollbarMinSize, scrollbarMaxSize, timeout } = this.getProperties('autoHide', 'forceVisible', 'sbClassNames', 'scrollbarMinSize', 'scrollbarMaxSize', 'timeout')
     //  Assign them to an object
-    const options = { autoHide, forceVisible, sbClassNames, scrollbarMinSize, scrollbarMaxSize, timeout }
+    const options = { autoHide, forceVisible, classNames: sbClassNames, scrollbarMinSize, scrollbarMaxSize, timeout }
     // Filter out undefined
     Object.keys(options).forEach(key => { if (typeof options[key] === 'undefined') delete options[key] });
     // Set options object on the component
