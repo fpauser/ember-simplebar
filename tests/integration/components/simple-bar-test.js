@@ -14,7 +14,7 @@ function waitABit(interval = 500) { return new Ember.Test.promise(function (reso
 })}
 
 async function renderLongTemplate() {
-  await render(hbs`      
+  await render(hbs`
     <div class="container" style="overflow-x: auto;">
       <h1>SimpleBar</h1>
       <div class="content">
