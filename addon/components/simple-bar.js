@@ -3,7 +3,14 @@ import SimpleBar from 'simplebar';
 import layout from '../templates/components/simple-bar';
 import { schedule } from '@ember/runloop';
 
-const SIMPLEBAR_OPTIONS = ['autoHide', 'forceVisible', 'sbClassNames', 'scrollbarMinSize', 'scrollbarMaxSize', 'timeout'];
+const SIMPLEBAR_OPTIONS = [
+  'autoHide',
+  'forceVisible',
+  'sbClassNames',
+  'scrollbarMinSize',
+  'scrollbarMaxSize',
+  'timeout'
+];
 
 export default Component.extend({
   layout,
