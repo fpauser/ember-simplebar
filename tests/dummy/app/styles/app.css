@@ -1,3 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  line-height: 1.15;
+}
+
 h1 {
   color: #313131;
   margin: 0 0 25px 0;
@@ -18,7 +26,13 @@ h1 {
 
 .content {
   height: 400px;
-  overflow: hidden;
+  overflow: auto;
+  overflow-x: hidden;
+  border: 1px solid grey;
+}
+
+.content p {
+  padding: 0 16px;
 }
 
 .content p:first-of-type {
@@ -27,4 +41,8 @@ h1 {
 
 .content p:last-of-type {
   margin-bottom: 0;
+}
+
+.content .ember-simplebar {
+  height: 100%;
 }

@@ -1,4 +1,4 @@
-{{#if disabled}}
+{{#if @disabled}}
   {{yield}}
 {{else}}
   <div class="simplebar-wrapper">
@@ -7,8 +7,10 @@
     </div>
     <div class="simplebar-mask">
       <div class="simplebar-offset">
-        <div class="simplebar-content">
-          {{yield}}
+        <div class="simplebar-content-wrapper">
+          <div class="simplebar-content">
+            {{yield}}
+          </div>
         </div>
       </div>
     </div>
