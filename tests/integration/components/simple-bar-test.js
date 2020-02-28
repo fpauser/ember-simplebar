@@ -18,7 +18,7 @@ async function renderLongTemplate() {
     <div class="container" style="overflow-x: auto;">
       <h1>SimpleBar</h1>
       <div class="content">
-        <SimpleBar @autoHide={{this.autoHide}}>
+        <SimpleBar @autoHide={{this.autoHide}} @timeout={{this.timeout}}>
           <div class="inner-content" style="width: 800px;">
             <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. </p>
             <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
@@ -49,12 +49,15 @@ module('Integration | Component | simple-bar', function(hooks) {
   });
 
   test('it follows default behavior for presence of track bars', async function(assert) {
+    this.set('autoHide', true);
+    this.set('timeout', 200);
+
     await renderLongTemplate();
     assert.notEqual(find('.simplebar-track.simplebar-horizontal > .simplebar-scrollbar').classList[1], 'simplebar-visible', 'hidden before scroll event')
     await triggerEvent('.inner-content', 'scroll');
     await waitABit(100);
     assert.equal(find('.simplebar-track.simplebar-horizontal > .simplebar-scrollbar').classList[1], 'simplebar-visible', 'visible 100ms after scroll event')
-    await waitABit(1000);
+    await waitABit(300);
     assert.notEqual(find('.simplebar-track.simplebar-horizontal > .simplebar-scrollbar').classList[1], 'simplebar-visible', 'hidden after one second')
   });
 
