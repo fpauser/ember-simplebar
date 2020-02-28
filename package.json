@@ -1,6 +1,6 @@
 {
   "name": "ember-simplebar",
-  "version": "1.3.1",
+  "version": "2.0.0",
   "description": "Custom scrollbar component using SimpleBar",
   "keywords": [
     "ember-addon"
@@ -21,10 +21,10 @@
     "test:all": "ember try:each"
   },
   "dependencies": {
-    "ember-auto-import": "^1.3.0",
+    "ember-auto-import": "^1.5.3",
     "ember-cli-babel": "^7.17.2",
     "ember-cli-htmlbars": "^4.2.2",
-    "simplebar": "^4.1.0"
+    "simplebar": "5.1.0"
   },
   "devDependencies": {
     "@ember/optional-features": "^1.3.0",
