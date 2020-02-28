@@ -1,3 +1,5 @@
+<a href="http://travis-ci.org/fpauser/ember-simplebar"><img src="https://travis-ci.com/fpauser/ember-simplebar.svg?branch=master" alt="Build Status"></a>
+
 ember-simplebar
 ==============================================================================
 
