@@ -1,9 +1,7 @@
-{{#if @disabled}}
-  {{yield}}
-{{else}}
+<div class="ember-simplebar" {{did-insert (fn this.initSimplebar)}} ...attributes>
   <div class="simplebar-wrapper">
     <div class="simplebar-height-auto-observer-wrapper">
-      <div class="simplebar-height-auto-observer" />
+      <div class="simplebar-height-auto-observer"></div>
     </div>
     <div class="simplebar-mask">
       <div class="simplebar-offset">
@@ -14,12 +12,12 @@
         </div>
       </div>
     </div>
-    <div class="simplebar-placeholder" />
+    <div class="simplebar-placeholder"></div>
   </div>
   <div class="simplebar-track simplebar-horizontal">
-    <div class="simplebar-scrollbar" />
+    <div class="simplebar-scrollbar"></div>
   </div>
   <div class="simplebar-track simplebar-vertical">
-    <div class="simplebar-scrollbar" />
+    <div class="simplebar-scrollbar"></div>
   </div>
-{{/if}}
+</div>
