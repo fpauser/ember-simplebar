@@ -18,7 +18,7 @@ async function renderLongTemplate() {
     <div class="container" style="overflow-x: auto;">
       <h1>SimpleBar</h1>
       <div class="content">
-        {{#simple-bar autoHide=autoHide}}
+        <SimpleBar @autoHide={{autoHide}}>
           <div class="inner-content" style="width: 800px;">
             <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. </p>
             <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
@@ -28,7 +28,7 @@ async function renderLongTemplate() {
             <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. </p>
             <p class="last">Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus. </p>
           </div>
-        {{/simple-bar}}
+        </SimpleBar>
       </div>
     </div>
   `)
@@ -36,29 +36,6 @@ async function renderLongTemplate() {
 
 module('Integration | Component | simple-bar', function(hooks) {
   setupRenderingTest(hooks);
-
-  test('it renders', async function(assert) {
-    await render(hbs`
-      {{#simple-bar disabled=disabled}}
-        template block text
-      {{/simple-bar}}
-    `);
-
-    assert.ok(find('.simplebar-wrapper'), 'simplebar wrapper is present (enabled)')
-    assert.equal(this.element.textContent.trim(), 'template block text', 'block text renders within the component');
-  });
-
-  test('it does not render when disabled', async function(assert) {
-    this.set('disabled', true);
-    await render(hbs`
-      {{#simple-bar disabled=disabled}}
-        template block text
-      {{/simple-bar}}
-    `);
-
-    assert.notOk(find('.simplebar-wrapper'), 'simplebar wrapper is absent (disabled)')
-    assert.equal(this.element.textContent.trim(), 'template block text', 'block text still renders');
-  });
 
   test('it follows default behavior for presence of track bars', async function(assert) {
     await renderLongTemplate();

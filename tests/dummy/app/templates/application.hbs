@@ -2,11 +2,10 @@
   <h1>SimpleBar</h1>
 
   <div class="toolbar">
-    <button onclick={{action this.doToggleProperty "disabled"}}>{{if this.disabled "Enable" "Disable"}}</button>
-    <button onclick={{action this.doToggleProperty "autoHide"}} disabled={{this.disabled}}>{{if this.autoHide "Disable autoHide" "Enable autoHide"}}</button>
-    <button onclick={{action this.doToggleProperty "forceVisible"}} disabled={{this.disabled}}>{{if this.forceVisible "Disable forceVisible" "Enable forceVisible"}}</button>
+    <button type="button" {{on "click" (fn this.doToggleProperty "autoHide")}} disabled={{this.disabled}}>{{if this.autoHide "Disable autoHide" "Enable autoHide"}}</button>
+    <button type="button" {{on "click" (fn this.doToggleProperty "forceVisible")}} disabled={{this.disabled}}>{{if this.forceVisible "Disable forceVisible" "Enable forceVisible"}}</button>
     <br>
-    scrollbarMinSize: <input type="number" value={{this.scrollbarMinSize}} oninput={{action this.doSetNumberProperty "scrollbarMinSize"}}>
+    scrollbarMinSize: <input type="number" value={{this.scrollbarMinSize}} {{on "input" (fn this.doSetNumberProperty "scrollbarMinSize")}}>
   </div>
 
   <div class="content">
