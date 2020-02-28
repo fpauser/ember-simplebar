@@ -1,9 +1,6 @@
 'use strict';
 
 module.exports = {
-  options: {
-  },
-
   name: require('./package').name,
 
   included(app) {

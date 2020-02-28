@@ -1,19 +1,24 @@
 import Controller from '@ember/controller';
+import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class ApplicationController extends Controller {
-  disabled = false;
+  @tracked
   autoHide = false;
+
+  @tracked
   forceVisible = true;
+
+  @tracked
   scrollbarMinSize = 25;
 
   @action
   doToggleProperty(property) {
-    this.toggleProperty(property);
+    this[property] = !this[property];
   }
 
   @action
   doSetNumberProperty(property, event) {
-    this.set(property, Number.parseInt(event.target.value));
+    this[property] = Number.parseInt(event.target.value);
   }
 }
