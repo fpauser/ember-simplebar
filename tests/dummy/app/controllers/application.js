@@ -10,7 +10,7 @@ export default class ApplicationController extends Controller {
   forceVisible = true;
 
   @tracked
-  scrollbarMinSize = 25;
+  scrollbarMinSize = 50;
 
   @action
   doToggleProperty(property) {

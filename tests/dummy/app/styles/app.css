@@ -1,48 +1,19 @@
-* {
-  box-sizing: border-box;
-}
+@import "utils.css";
 
-html {
-  line-height: 1.15;
+html, body {
+  font-size: 1em;
+  font-family: sans-serif;
+  line-height: 2;
 }
 
 h1 {
-  color: #313131;
-  margin: 0 0 25px 0;
+  font-size: 2.5em;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
 }
 
-.container {
-  width: 400px;
-  margin: 100px auto;
-
-  padding: 20px 30px;
-  border: 10px solid #313131;
-
-
-  font-size: 14px;
-  font-family: sans-serif;
-  color: #aaa;
-}
-
-.content {
-  height: 400px;
-  overflow: auto;
-  overflow-x: hidden;
-  border: 1px solid grey;
-}
-
-.content p {
-  padding: 0 16px;
-}
-
-.content p:first-of-type {
-  margin-top: 0;
-}
-
-.content p:last-of-type {
-  margin-bottom: 0;
-}
-
-.content .ember-simplebar {
-  height: 100%;
+.custom-track .simplebar-track.simplebar-vertical,
+.custom-track .simplebar-track.simplebar-horizontal {
+  background: rgba(200,200,200,.5);
 }
