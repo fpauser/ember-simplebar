@@ -24,8 +24,16 @@ ember install ember-simplebar
 Usage
 ------------------------------------------------------------------------------
 
-```
+```hbs
 <SimpleBar>
+  ...
+</SimpleBar>
+```
+
+All supported options of SimpleBar can be given as component arguments, e.g.:
+
+```hbs
+<SimpleBar @autoHide={{true}} @timeout={{200}}>
   ...
 </SimpleBar>
 ```
