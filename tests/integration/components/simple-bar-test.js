@@ -62,11 +62,13 @@ module('Integration | Component | simple-bar', function(hooks) {
 
     await renderLongTemplate();
     assert.notEqual(find('.simplebar-track.simplebar-horizontal > .simplebar-scrollbar').classList[1], 'simplebar-visible', 'hidden before scroll event')
+
     await triggerEvent('.inner-content', 'scroll');
     await waitABit(100);
     assert.equal(find('.simplebar-track.simplebar-horizontal > .simplebar-scrollbar').classList[1], 'simplebar-visible', 'visible 100ms after scroll event')
+
     await waitABit(300);
-    assert.notEqual(find('.simplebar-track.simplebar-horizontal > .simplebar-scrollbar').classList[1], 'simplebar-visible', 'hidden after one second')
+    assert.notEqual(find('.simplebar-track.simplebar-horizontal > .simplebar-scrollbar').classList[1], 'simplebar-visible', 'hidden after autoHide timeout')
   });
 
   test('it takes parameters', async function(assert) {
