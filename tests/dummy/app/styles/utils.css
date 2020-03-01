@@ -24,6 +24,11 @@
   margin-right: 16px;
 }
 
+.mx-8 {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
 .mx-auto {
   margin-right: auto;
   margin-left: auto;

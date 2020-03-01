@@ -13,23 +13,39 @@
     </button>
   </div>
 
-  <div class="flex items-center mt-10">
-    <div class="mr-8">
-      scrollbarMinSize:
+  <div class="flex mt-10">
+    <div class="flex items-center">
+      <div class="mr-8">
+        scrollbarMinSize:
+      </div>
+
+      <input
+        class="p-2 w-10"
+        type="number"
+        value={{this.scrollbarMinSize}}
+        {{on "change" (fn this.doSetNumberProperty "scrollbarMinSize")}}
+      >
     </div>
 
-    <input
-      class="p-2 w-10"
-      type="number"
-      value={{this.scrollbarMinSize}}
-      {{on "change" (fn this.doSetNumberProperty "scrollbarMinSize")}}
-    >
+    <div class="flex items-center">
+      <div class="mx-8">
+        timeout:
+      </div>
+
+      <input
+        class="p-2 w-10"
+        type="number"
+        value={{this.timeout}}
+        {{on "change" (fn this.doSetNumberProperty "timeout")}}
+      >
+    </div>
   </div>
 
   <div class="mt-10 bg-gray-200">
     <SimpleBar
       class="h-400 p-8 custom-track"
       @autoHide={{this.autoHide}}
+      @timeout={{this.timeout}}
       @forceVisible={{this.forceVisible}}
       @scrollbarMinSize={{this.scrollbarMinSize}}
     >

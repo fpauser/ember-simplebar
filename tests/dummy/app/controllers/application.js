@@ -4,13 +4,16 @@ import { action } from '@ember/object';
 
 export default class ApplicationController extends Controller {
   @tracked
-  autoHide = false;
+  autoHide = true;
 
   @tracked
-  forceVisible = true;
+  forceVisible = false;
 
   @tracked
   scrollbarMinSize = 50;
+
+  @tracked
+  timeout = 1000;
 
   @action
   doToggleProperty(property) {

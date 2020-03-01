@@ -15,5 +15,5 @@ h1 {
 
 .custom-track .simplebar-track.simplebar-vertical,
 .custom-track .simplebar-track.simplebar-horizontal {
-  background: rgba(200,200,200,.5);
+  background: rgba(200,200,200,.125);
 }
