@@ -34,7 +34,7 @@ Usage
 </SimpleBar>
 ```
 
-All supported options of SimpleBar can be given as component arguments, e.g.:
+All [supported options of SimpleBar](https://github.com/Grsmto/simplebar/blob/master/packages/simplebar/README.md#options) can be given as component arguments, e.g.:
 
 ```hbs
 <SimpleBar @autoHide={{true}} @timeout={{200}}>
