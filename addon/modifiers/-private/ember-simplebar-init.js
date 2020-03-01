@@ -1,7 +1,7 @@
 import Modifier from 'ember-modifier';
 import SimpleBar from 'simplebar/dist/simplebar-core.esm';
 
-export default class InitSimpleBarModifier extends Modifier {
+export default class EmberSimplebarInitModifier extends Modifier {
   sb = undefined;
 
   get options() {
