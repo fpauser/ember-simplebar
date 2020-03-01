@@ -43,6 +43,21 @@ All [supported options of SimpleBar](https://github.com/Grsmto/simplebar/blob/ma
 </SimpleBar>
 ```
 
+To use it together with [vertical-collection](https://github.com/html-next/vertical-collection) use the `containerSelector` option:
+
+```hbs
+<SimpleBar>
+  <VerticalCollection 
+    @items={{this.items}}
+    @estimateHeight={{50}}
+    @containerSelector=".simplebar-content-wrapper"
+    as |item|
+  >
+    {{item}}
+  </VerticalCollection>
+</SimpleBar>
+```
+
 
 Contributing
 ------------------------------------------------------------------------------
