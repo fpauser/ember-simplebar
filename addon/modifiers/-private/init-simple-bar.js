@@ -10,13 +10,8 @@ export default class InitSimpleBarModifier extends Modifier {
   }
 
   didReceiveArguments() {
-    if (!this.sb) {
-      this.sb = new SimpleBar(this.element, this.options);
-    } else {
-      this.sb.options = this.options;
-      this.sb.unMount();
-      this.sb.init();
-    }
+    if (this.sb) { this.sb.unMount(); }
+    this.sb = new SimpleBar(this.element, this.options);
   }
 
   willRemove() {
