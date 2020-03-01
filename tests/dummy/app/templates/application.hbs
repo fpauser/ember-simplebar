@@ -16,6 +16,18 @@
   <div class="flex mt-10">
     <div class="flex items-center">
       <div class="mr-8">
+        (autoHide) timeout:
+      </div>
+
+      <input
+        class="p-2 w-10"
+        type="number"
+        value={{this.timeout}}
+        {{on "change" (fn this.doSetNumberProperty "timeout")}}
+      >
+    </div>
+    <div class="flex items-center">
+      <div class="mx-8">
         scrollbarMinSize:
       </div>
 
@@ -24,19 +36,6 @@
         type="number"
         value={{this.scrollbarMinSize}}
         {{on "change" (fn this.doSetNumberProperty "scrollbarMinSize")}}
-      >
-    </div>
-
-    <div class="flex items-center">
-      <div class="mx-8">
-        timeout:
-      </div>
-
-      <input
-        class="p-2 w-10"
-        type="number"
-        value={{this.timeout}}
-        {{on "change" (fn this.doSetNumberProperty "timeout")}}
       >
     </div>
   </div>
