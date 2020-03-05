@@ -56,6 +56,24 @@ module('Integration | Component | simple-bar', function(hooks) {
     assert.equal(this.element.textContent.trim(), 'template block text', 'block text renders within the component');
   });
 
+  test('it yields the simplebar instance', async function(assert) {
+    assert.expect(1);
+
+    this.set('getInstance', (instance) => {
+      assert.ok(instance, 1);
+    });
+
+    await render(hbs`
+      <SimpleBar as |sb|>
+        <button type="button" {{on "click" (fn this.getInstance sb)}}>
+          check sb
+        </button>
+      </SimpleBar>
+    `);
+
+    await triggerEvent('button', 'click');
+  });
+
   test('it follows default behavior for presence of track bars', async function(assert) {
     this.set('autoHide', true);
     this.set('timeout', 200);

@@ -24,4 +24,8 @@ export default class ApplicationController extends Controller {
   doSetNumberProperty(property, event) {
     this[property] = Number.parseInt(event.target.value);
   }
+
+  recalculate(simplebar) {
+    simplebar?.recalculate();
+  }
 }

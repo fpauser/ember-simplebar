@@ -1,4 +1,4 @@
-<div class="ember-simplebar" ...attributes {{-private/ember-simplebar-init this.args}}>
+<div class="ember-simplebar" ...attributes {{-private/ember-simplebar-init this.args onUpdate=(fn this.setInstance)}}>
   <div class="simplebar-wrapper">
     <div class="simplebar-height-auto-observer-wrapper">
       <div class="simplebar-height-auto-observer"></div>
@@ -7,7 +7,7 @@
       <div class="simplebar-offset">
         <div class="simplebar-content-wrapper">
           <div class="simplebar-content">
-            {{yield}}
+            {{yield this.instance}}
           </div>
         </div>
       </div>

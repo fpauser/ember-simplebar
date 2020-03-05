@@ -9,9 +9,14 @@ export default class EmberSimplebarInitModifier extends Modifier {
     return { ...defaultOptions, ...this.args.positional[0] };
   }
 
+  get setInstance() {
+    return this.args.named.onUpdate;
+  }
+
   didReceiveArguments() {
     if (this.sb) { this.sb.unMount(); }
     this.sb = new SimpleBar(this.element, this.options);
+    this.setInstance(this.sb);
   }
 
   willRemove() {

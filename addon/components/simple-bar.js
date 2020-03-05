@@ -1,5 +1,13 @@
+import { action } from '@ember/object';
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 
 export default class SimpleBarComponent extends Component {
-  /* empty but needed for this.args in the template */
+  @tracked
+  instance = undefined;
+
+  @action
+  setInstance(instance) {
+    this.instance = instance;
+  }
 }
