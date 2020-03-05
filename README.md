@@ -45,12 +45,6 @@ All [supported options of SimpleBar](https://github.com/Grsmto/simplebar/blob/ma
 
 To access the current simplebar instance (e.g. for calling `recalculate`):
 
-```hbs
-<SimpleBar as |simplebar|>
-  <FooComponent @onResize=(fn this.recalculate simplebar) />
-</SimpleBar>
-```
-
 ```js
 import Component from '@glimmer/component';
 
@@ -60,6 +54,15 @@ export default class FooComponent extends Component {
   }
 }
 ```
+
+```hbs
+<Foo>
+  <SimpleBar as |simplebar|>
+    <Bar @onResize=(fn this.recalculate simplebar) />
+  </SimpleBar>
+</Foo>
+```
+
 
 To use it together with [vertical-collection](https://github.com/html-next/vertical-collection) use the `containerSelector` option:
 
