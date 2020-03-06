@@ -47,10 +47,9 @@
       @timeout={{this.timeout}}
       @forceVisible={{this.forceVisible}}
       @scrollbarMinSize={{this.scrollbarMinSize}}
-      as |simplebar|
-
+      as |sb|
     >
-      <button type="button" {{on "click" (fn this.recalculate simplebar)}}>
+      <button type="button" {{on "click" sb.recalculate}}>
         RECALCULATE
       </button>
 

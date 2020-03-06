@@ -10,4 +10,9 @@ export default class SimpleBarComponent extends Component {
   setInstance(instance) {
     this.instance = instance;
   }
+
+  @action
+  recalculate() {
+    this.instance?.recalculate();
+  }
 }

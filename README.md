@@ -43,26 +43,16 @@ All [supported options of SimpleBar](https://github.com/Grsmto/simplebar/blob/ma
 </SimpleBar>
 ```
 
-To access the current simplebar instance (e.g. for calling `recalculate`):
-
-```js
-import Component from '@glimmer/component';
-
-export default class FooComponent extends Component {
-  recalculate(simplebar) {
-    simplebar?.recalculate();
-  }
-}
-```
+SimpleBar yields a small api to the current simplebar instance that can be used to e.g. `recalculate`:
 
 ```hbs
-<Foo>
-  <SimpleBar as |simplebar|>
-    <Bar @onResize=(fn this.recalculate simplebar) />
-  </SimpleBar>
-</Foo>
+<SimpleBar as |sb|>
+  <object href="http://path/to/object.svg" {{on "load" sb.recalculate}} />
+</SimpleBar>
 ```
 
+Integration
+------------------------------------------------------------------------------
 
 To use it together with [vertical-collection](https://github.com/html-next/vertical-collection) use the `containerSelector` option:
 

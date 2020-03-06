@@ -56,16 +56,16 @@ module('Integration | Component | simple-bar', function(hooks) {
     assert.equal(this.element.textContent.trim(), 'template block text', 'block text renders within the component');
   });
 
-  test('it yields the simplebar instance', async function(assert) {
+  test('it yields an api to the current simplebar instance', async function(assert) {
     assert.expect(1);
 
-    this.set('getInstance', (instance) => {
-      assert.ok(instance, 1);
+    this.set('checkSimpleBarApi', (api) => {
+      assert.ok(typeof api.recalculate === 'function');
     });
 
     await render(hbs`
-      <SimpleBar as |sb|>
-        <button type="button" {{on "click" (fn this.getInstance sb)}}>
+      <SimpleBar as |simplebar|>
+        <button type="button" {{on "click" (fn this.checkSimpleBarApi simplebar)}}>
           check sb
         </button>
       </SimpleBar>
