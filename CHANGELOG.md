@@ -3,7 +3,6 @@
 ## 2.2.x
 
 * Instead of yielding the simplebar instance yield a small api with a `recalculate` function
-
 * Add CHANGELOG.md
 
 ## 2.1.x
