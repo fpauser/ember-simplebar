@@ -47,7 +47,11 @@ SimpleBar yields a small api to the current simplebar instance that can be used 
 
 ```hbs
 <SimpleBar as |sb|>
-  <object data="http://path/to/object.svg" type="image/svg+xml" {{on "load" sb.recalculate}} />
+  <object
+    type="image/svg+xml"
+    data="http://path/to/object.svg"
+    {{on "load" sb.recalculate}}
+  />
 </SimpleBar>
 ```
 
