@@ -15,6 +15,9 @@ export default class ApplicationController extends Controller {
   @tracked
   timeout = 1000;
 
+  @tracked
+  sbInstance = undefined;
+
   @action
   doToggleProperty(property) {
     this[property] = !this[property];
@@ -25,7 +28,23 @@ export default class ApplicationController extends Controller {
     this[property] = Number.parseInt(event.target.value);
   }
 
+  @action
+  scrollToRandom() {
+      this.sbInstance
+        ?.getScrollElement()
+        ?.scrollTo({
+          top: Math.random() * 10000,
+          behavior: "smooth"
+        });
+  }
+
+  @action
   recalculate(simplebar) {
-    simplebar?.recalculate();
+    simplebar.recalculate();
+  }
+
+  @action
+  setSbInstance(sb) {
+    this.sbInstance = sb;
   }
 }

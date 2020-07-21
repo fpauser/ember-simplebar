@@ -11,6 +11,12 @@
     <button type="button" class="m-2" {{on "click" (fn this.doToggleProperty "forceVisible")}}>
       {{if this.forceVisible "Disable forceVisible" "Enable forceVisible"}}
     </button>
+
+    {{#if this.sbInstance}}
+      <button type="button" class="m-2" {{on "click" this.scrollToRandom}}>
+        Random scroll
+      </button>
+    {{/if}}
   </div>
 
   <div class="flex mt-10">
@@ -49,11 +55,13 @@
       @scrollbarMinSize={{this.scrollbarMinSize}}
       as |sb|
     >
-      <button type="button" {{on "click" sb.recalculate}}>
-        RECALCULATE
-      </button>
+      <div {{did-insert (fn this.setSbInstance sb)}}>
+        <button type="button" {{on "click" sb.recalculate}}>
+          RECALCULATE
+        </button>
 
-      {{lipsum 150}}
+        {{lipsum 150}}
+      </div>
     </SimpleBar>
   </div>
 </div>

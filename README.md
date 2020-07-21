@@ -43,7 +43,7 @@ All [supported options of SimpleBar](https://github.com/Grsmto/simplebar/blob/ma
 </SimpleBar>
 ```
 
-SimpleBar yields a small api to the current simplebar instance that can be used to e.g. `recalculate`:
+SimpleBar yields the current simplebar instance that can be used to e.g. `recalculate`:
 
 ```hbs
 <SimpleBar as |sb|>

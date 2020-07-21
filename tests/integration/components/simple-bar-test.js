@@ -76,11 +76,12 @@ module('Integration | Component | simple-bar', function(hooks) {
 
   test('it follows default behavior for presence of track bars', async function(assert) {
     this.set('autoHide', true);
-    this.set('timeout', 200);
+    this.set('timeout', 100);
 
     await renderLongTemplate();
     assert.notEqual(find('.simplebar-track.simplebar-horizontal > .simplebar-scrollbar').classList[1], 'simplebar-visible', 'hidden before scroll event')
 
+    await waitABit(100);
     await triggerEvent('.inner-content', 'scroll');
     await waitABit(100);
     assert.equal(find('.simplebar-track.simplebar-horizontal > .simplebar-scrollbar').classList[1], 'simplebar-visible', 'visible 100ms after scroll event')
