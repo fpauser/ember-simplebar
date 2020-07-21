@@ -56,17 +56,17 @@ module('Integration | Component | simple-bar', function(hooks) {
     assert.equal(this.element.textContent.trim(), 'template block text', 'block text renders within the component');
   });
 
-  test('it yields an api to the current simplebar instance', async function(assert) {
+  test('it yields the current simplebar instance', async function(assert) {
     assert.expect(1);
 
-    this.set('checkSimpleBarApi', (api) => {
-      assert.ok(typeof api.recalculate === 'function');
+    this.set('checkInstance', (simplebar) => {
+      assert.ok(typeof simplebar !== undefined);
     });
 
     await render(hbs`
       <SimpleBar as |simplebar|>
-        <button type="button" {{on "click" (fn this.checkSimpleBarApi simplebar)}}>
-          check sb
+        <button type="button" {{on "click" (fn this.checkInstance simplebar)}}>
+          check simplebar
         </button>
       </SimpleBar>
     `);
@@ -83,7 +83,7 @@ module('Integration | Component | simple-bar', function(hooks) {
 
     await waitABit(100);
     await triggerEvent('.inner-content', 'scroll');
-    await waitABit(100);
+    await waitABit(50);
     assert.equal(find('.simplebar-track.simplebar-horizontal > .simplebar-scrollbar').classList[1], 'simplebar-visible', 'visible 100ms after scroll event')
 
     await waitABit(300);
