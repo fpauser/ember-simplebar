@@ -17,6 +17,10 @@ Compatibility
 * Ember CLI v2.13 or above
 * Node.js v10 or above
 
+Embroider
+------------------------------------------------------------------------------
+This addon is [tested against embroider](https://medium.com/@kiwiupover/embroider-preparation-14d59edafc0b) and can be used with the new [embroider](https://github.com/embroider-build/embroider) build system.
+
 
 Installation
 ------------------------------------------------------------------------------
