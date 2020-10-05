@@ -60,18 +60,16 @@ module('Integration | Component | simple-bar', function(hooks) {
     assert.expect(1);
 
     this.set('checkInstance', (simplebar) => {
-      assert.ok(typeof simplebar !== undefined);
+      assert.ok(simplebar);
     });
 
     await render(hbs`
       <SimpleBar as |simplebar|>
-        <button type="button" {{on "click" (fn this.checkInstance simplebar)}}>
+        <button type="button" {{did-insert (fn this.checkInstance simplebar)}}>
           check simplebar
         </button>
       </SimpleBar>
     `);
-
-    await triggerEvent('button', 'click');
   });
 
   test('it follows default behavior for presence of track bars', async function(assert) {
