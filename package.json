@@ -1,6 +1,6 @@
 {
   "name": "ember-simplebar",
-  "version": "3.1.5",
+  "version": "3.1.6",
   "description": "Custom scrollbar component using SimpleBar",
   "keywords": [
     "ember-addon"
