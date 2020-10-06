@@ -21,7 +21,7 @@ export default class EmberSimplebarInitModifier extends Modifier {
     } else {
       // update
       this.sb.options = this.options;
-      this.sb.recalculate.call(this.sb);
+      this.sb.recalculate();
     }
   }
 
