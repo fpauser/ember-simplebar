@@ -5,13 +5,19 @@ import hbs from 'htmlbars-inline-precompile';
 import { later } from '@ember/runloop';
 import Ember from 'ember';
 
-function waitABit(interval = 500) { return new Ember.Test.promise(function (resolve) {
-  Ember.Test.adapter.asyncStart();
-  later(this, function () {
-    Ember.Test.adapter.asyncEnd();
-    resolve();
-  }, interval); // in ms
-})}
+function waitABit(interval = 500) {
+  return new Ember.Test.promise(function (resolve) {
+    Ember.Test.adapter.asyncStart();
+    later(
+      this,
+      function () {
+        Ember.Test.adapter.asyncEnd();
+        resolve();
+      },
+      interval
+    ); // in ms
+  });
+}
 
 async function renderLongTemplate() {
   await render(hbs`
@@ -39,24 +45,31 @@ async function renderLongTemplate() {
         </div>
       </SimpleBar>
     </div>
-  `)
+  `);
 }
 
-module('Integration | Component | simple-bar', function(hooks) {
+module('Integration | Component | simple-bar', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
+  test('it renders', async function (assert) {
     await render(hbs`
       <SimpleBar>
         template block text
       </SimpleBar>
     `);
 
-    assert.ok(find('.simplebar-wrapper'), 'simplebar wrapper is present (enabled)')
-    assert.equal(this.element.textContent.trim(), 'template block text', 'block text renders within the component');
+    assert.ok(
+      find('.simplebar-wrapper'),
+      'simplebar wrapper is present (enabled)'
+    );
+    assert.equal(
+      this.element.textContent.trim(),
+      'template block text',
+      'block text renders within the component'
+    );
   });
 
-  test('it yields the current simplebar instance', async function(assert) {
+  test('it yields the current simplebar instance', async function (assert) {
     assert.expect(1);
 
     this.set('checkInstance', (simplebar) => {
@@ -72,25 +85,45 @@ module('Integration | Component | simple-bar', function(hooks) {
     `);
   });
 
-  test('it follows default behavior for presence of track bars', async function(assert) {
+  test('it follows default behavior for presence of track bars', async function (assert) {
     this.set('autoHide', true);
     this.set('timeout', 100);
 
     await renderLongTemplate();
-    assert.notEqual(find('.simplebar-track.simplebar-horizontal > .simplebar-scrollbar').classList[1], 'simplebar-visible', 'hidden before scroll event')
+    assert.notEqual(
+      find('.simplebar-track.simplebar-horizontal > .simplebar-scrollbar')
+        .classList[1],
+      'simplebar-visible',
+      'hidden before scroll event'
+    );
 
     await waitABit(100);
     await triggerEvent('.inner-content', 'scroll');
     await waitABit(50);
-    assert.equal(find('.simplebar-track.simplebar-horizontal > .simplebar-scrollbar').classList[1], 'simplebar-visible', 'visible 100ms after scroll event')
+    assert.equal(
+      find('.simplebar-track.simplebar-horizontal > .simplebar-scrollbar')
+        .classList[1],
+      'simplebar-visible',
+      'visible 100ms after scroll event'
+    );
 
     await waitABit(300);
-    assert.notEqual(find('.simplebar-track.simplebar-horizontal > .simplebar-scrollbar').classList[1], 'simplebar-visible', 'hidden after autoHide timeout')
+    assert.notEqual(
+      find('.simplebar-track.simplebar-horizontal > .simplebar-scrollbar')
+        .classList[1],
+      'simplebar-visible',
+      'hidden after autoHide timeout'
+    );
   });
 
-  test('it takes parameters', async function(assert) {
+  test('it takes parameters', async function (assert) {
     this.set('autoHide', false);
     await renderLongTemplate();
-    assert.equal(find('.simplebar-track.simplebar-horizontal > .simplebar-scrollbar').classList[1], 'simplebar-visible', 'simplebar trackbars always visible')
+    assert.equal(
+      find('.simplebar-track.simplebar-horizontal > .simplebar-scrollbar')
+        .classList[1],
+      'simplebar-visible',
+      'simplebar trackbars always visible'
+    );
   });
 });

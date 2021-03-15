@@ -30,12 +30,10 @@ export default class ApplicationController extends Controller {
 
   @action
   scrollToRandom() {
-      this.sbInstance
-        ?.getScrollElement()
-        ?.scrollTo({
-          top: Math.random() * 10000,
-          behavior: "smooth"
-        });
+    this.sbInstance?.getScrollElement()?.scrollTo({
+      top: Math.random() * 10000,
+      behavior: 'smooth',
+    });
   }
 
   @action
