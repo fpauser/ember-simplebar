@@ -1,1 +1,0 @@
-2022-02-10T12:28:11.151Z [warn] WARNING: {{lipsum}} was not converted as it has positional parameters which can't be automatically converted. Source: tests/dummy/app/templates/application.hbs
