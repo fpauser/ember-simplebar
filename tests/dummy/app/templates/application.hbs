@@ -27,6 +27,7 @@
 
       <input
         class="p-2 w-10"
+        id="autohide-timeout"
         type="number"
         value={{this.timeout}}
         {{on "change" (fn this.doSetNumberProperty "timeout")}}
@@ -39,6 +40,7 @@
 
       <input
         class="p-2 w-10"
+        id="scrollbar-min-size"
         type="number"
         value={{this.scrollbarMinSize}}
         {{on "change" (fn this.doSetNumberProperty "scrollbarMinSize")}}

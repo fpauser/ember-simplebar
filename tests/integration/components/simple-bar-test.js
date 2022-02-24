@@ -21,6 +21,7 @@ function waitABit(interval = 500) {
 
 async function renderLongTemplate() {
   await render(hbs`
+    {{!-- template-lint-disable no-forbidden-elements --}}
     <style>
       .wrapper {
         width: 400px;
@@ -58,15 +59,15 @@ module('Integration | Component | simple-bar', function (hooks) {
       </SimpleBar>
     `);
 
-    assert.ok(
-      find('.simplebar-wrapper'),
-      'simplebar wrapper is present (enabled)'
-    );
-    assert.equal(
-      this.element.textContent.trim(),
-      'template block text',
-      'block text renders within the component'
-    );
+    assert
+      .dom('.simplebar-wrapper')
+      .exists('simplebar wrapper is present (enabled)');
+    assert
+      .dom(this.element)
+      .hasText(
+        'template block text',
+        'block text renders within the component'
+      );
   });
 
   test('it yields the current simplebar instance', async function (assert) {
@@ -100,7 +101,7 @@ module('Integration | Component | simple-bar', function (hooks) {
     await waitABit(100);
     await triggerEvent('.inner-content', 'scroll');
     await waitABit(50);
-    assert.equal(
+    assert.strictEqual(
       find('.simplebar-track.simplebar-horizontal > .simplebar-scrollbar')
         .classList[1],
       'simplebar-visible',
@@ -119,7 +120,7 @@ module('Integration | Component | simple-bar', function (hooks) {
   test('it takes parameters', async function (assert) {
     this.set('autoHide', false);
     await renderLongTemplate();
-    assert.equal(
+    assert.strictEqual(
       find('.simplebar-track.simplebar-horizontal > .simplebar-scrollbar')
         .classList[1],
       'simplebar-visible',
