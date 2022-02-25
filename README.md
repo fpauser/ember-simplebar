@@ -1,37 +1,28 @@
-
-<a href="http://travis-ci.com/fpauser/ember-simplebar"><img src="https://travis-ci.com/fpauser/ember-simplebar.svg?branch=master" alt="Build Status"></a>
+<img src="https://github.com/fpauser/ember-simplebar/actions/workflows/ci.yml/badge.svg" alt="Build Status">
 <a href="https://npmjs.org/package/ember-simplebar"><img alt="NPM version" src="https://img.shields.io/npm/v/ember-simplebar.svg?style=flat-square" /></a>
 <a href="https://npmjs.org/package/ember-simplebar"><img alt="NPM downloads" src="https://img.shields.io/npm/dm/ember-simplebar.svg?style=flat-square"></a>
 
-ember-simplebar
-==============================================================================
+# ember-simplebar
 
 A scrollbar component that wraps [SimpleBar](https://github.com/Grsmto/simplebar).
 
+## Compatibility
 
+- Ember.js v3.24 or above
+- Ember CLI v3.24 or above
+- Node.js v12 or above
 
-Compatibility
-------------------------------------------------------------------------------
+## Embroider
 
-* Ember.js v3.24 or above
-* Ember CLI v3.24 or above
-* Node.js v12 or above
-
-Embroider
-------------------------------------------------------------------------------
 This addon is [tested against embroider](https://medium.com/@kiwiupover/embroider-preparation-14d59edafc0b) and can be used with the new [embroider](https://github.com/embroider-build/embroider) build system.
 
-
-Installation
-------------------------------------------------------------------------------
+## Installation
 
 ```
 ember install ember-simplebar
 ```
 
-
-Usage
-------------------------------------------------------------------------------
+## Usage
 
 ```hbs
 <SimpleBar>
@@ -52,24 +43,23 @@ SimpleBar yields the current simplebar instance that can be used to e.g. `recalc
 ```hbs
 <SimpleBar as |sb|>
   <object
-    type="image/svg+xml"
-    data="http://path/to/object.svg"
-    {{on "load" sb.recalculate}}
-  />
+    type='image/svg+xml'
+    data='http://path/to/object.svg'
+    {{on 'load' sb.recalculate}}
+  ></object>
 </SimpleBar>
 ```
 
-Integration
-------------------------------------------------------------------------------
+## Integration
 
 To use it together with [vertical-collection](https://github.com/html-next/vertical-collection) use the `containerSelector` option:
 
 ```hbs
 <SimpleBar>
-  <VerticalCollection 
+  <VerticalCollection
     @items={{this.items}}
     @estimateHeight={{50}}
-    @containerSelector=".simplebar-content-wrapper"
+    @containerSelector='.simplebar-content-wrapper'
     as |item|
   >
     {{item}}
@@ -77,14 +67,10 @@ To use it together with [vertical-collection](https://github.com/html-next/verti
 </SimpleBar>
 ```
 
-
-Contributing
-------------------------------------------------------------------------------
+## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
 
-
-License
-------------------------------------------------------------------------------
+## License
 
 This project is licensed under the [MIT License](LICENSE.md).
