@@ -1,4 +1,4 @@
-<img src="https://github.com/fpauser/ember-simplebar/actions/workflows/ci.yml/badge.svg" alt="Build Status">
+<a href="https://github.com/fpauser/ember-simplebar/actions"><img src="https://github.com/fpauser/ember-simplebar/actions/workflows/ci.yml/badge.svg" alt="Build Status"></a>
 <a href="https://npmjs.org/package/ember-simplebar"><img alt="NPM version" src="https://img.shields.io/npm/v/ember-simplebar.svg?style=flat-square" /></a>
 <a href="https://npmjs.org/package/ember-simplebar"><img alt="NPM downloads" src="https://img.shields.io/npm/dm/ember-simplebar.svg?style=flat-square"></a>
 
