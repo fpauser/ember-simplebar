@@ -1,32 +1,28 @@
 import Modifier from 'ember-modifier';
+import { registerDestructor } from '@ember/destroyable';
 import SimpleBar from 'simplebar/dist/simplebar-core.esm';
 
+function cleanup(instance) {
+  instance.sb?.unMount();
+  instance.sb = undefined;
+}
+
 export default class EmberSimplebarInitModifier extends Modifier {
-  sb = undefined;
-
-  get options() {
-    const { defaultOptions } = SimpleBar;
-    return { ...defaultOptions, ...this.args.positional[0] };
+  constructor(owner, args) {
+    super(owner, args);
+    registerDestructor(this, cleanup);
   }
 
-  get setInstance() {
-    return this.args.named.onUpdate;
-  }
-
-  didReceiveArguments() {
+  modify(element, [options], { onUpdate }) {
+    const sbOpts = { ...SimpleBar.defaultOptions, ...options };
     if (!this.sb) {
       // init
-      this.sb = new SimpleBar(this.element, this.options);
-      this.setInstance(this.sb);
+      this.sb = new SimpleBar(element, sbOpts);
+      onUpdate?.(this.sb);
     } else {
       // update
-      this.sb.options = this.options;
+      this.sb.options = sbOpts;
       this.sb.recalculate();
     }
-  }
-
-  willRemove() {
-    this.sb.unMount();
-    this.sb = undefined;
   }
 }
