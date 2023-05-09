@@ -4,11 +4,19 @@
   </h1>
 
   <div class="mt-10">
-    <button type="button" class="m-2" {{on "click" (fn this.doToggleProperty "autoHide")}}>
+    <button
+      type="button"
+      class="m-2"
+      {{on "click" (fn this.doToggleProperty "autoHide")}}
+    >
       {{if this.autoHide "Disable autoHide" "Enable autoHide"}}
     </button>
 
-    <button type="button" class="m-2" {{on "click" (fn this.doToggleProperty "forceVisible")}}>
+    <button
+      type="button"
+      class="m-2"
+      {{on "click" (fn this.doToggleProperty "forceVisible")}}
+    >
       {{if this.forceVisible "Disable forceVisible" "Enable forceVisible"}}
     </button>
 
@@ -31,7 +39,7 @@
         type="number"
         value={{this.timeout}}
         {{on "change" (fn this.doSetNumberProperty "timeout")}}
-      >
+      />
     </div>
     <div class="flex items-center">
       <div class="mx-8">
@@ -44,7 +52,7 @@
         type="number"
         value={{this.scrollbarMinSize}}
         {{on "change" (fn this.doSetNumberProperty "scrollbarMinSize")}}
-      >
+      />
     </div>
   </div>
 
@@ -58,7 +66,7 @@
       as |sb|
     >
       <div {{did-insert (fn this.setSbInstance sb)}}>
-        <button type="button" {{on "click" sb.recalculate}}>
+        <button type="button" {{on "click" (fn this.recalculate sb)}}>
           RECALCULATE
         </button>
 

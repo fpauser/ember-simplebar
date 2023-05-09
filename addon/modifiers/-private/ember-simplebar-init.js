@@ -1,6 +1,6 @@
 import Modifier from 'ember-modifier';
 import { registerDestructor } from '@ember/destroyable';
-import SimpleBar from 'simplebar/dist/simplebar-core.esm';
+import SimpleBarCore from 'simplebar-core';
 
 function cleanup(instance) {
   instance.sb?.unMount();
@@ -14,10 +14,10 @@ export default class EmberSimplebarInitModifier extends Modifier {
   }
 
   modify(element, [options], { onUpdate }) {
-    const sbOpts = { ...SimpleBar.defaultOptions, ...options };
+    const sbOpts = { ...SimpleBarCore.defaultOptions, ...options };
     if (!this.sb) {
       // init
-      this.sb = new SimpleBar(element, sbOpts);
+      this.sb = new SimpleBarCore(element, sbOpts);
       onUpdate?.(this.sb);
     } else {
       // update

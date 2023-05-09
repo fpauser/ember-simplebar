@@ -1,4 +1,5 @@
 <div
+  data-simplebar="init"
   class="ember-simplebar"
   ...attributes
   {{-private/ember-simplebar-init this.args onUpdate=this.setInstance}}
@@ -9,7 +10,12 @@
     </div>
     <div class="simplebar-mask">
       <div class="simplebar-offset">
-        <div class="simplebar-content-wrapper">
+        <div
+          class="simplebar-content-wrapper"
+          tabIndex="0"
+          role="region"
+          aria-label={{this.ariaLabel}}
+        >
           <div class="simplebar-content">
             {{#if this.instance}}
               {{yield this.instance}}

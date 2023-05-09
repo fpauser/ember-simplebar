@@ -8,9 +8,9 @@ A scrollbar component that wraps [SimpleBar](https://github.com/Grsmto/simplebar
 
 ## Compatibility
 
-- Ember.js v3.24 or above
-- Ember CLI v3.24 or above
-- Node.js v12 or above
+* Ember.js v4.4 or above
+* Ember CLI v4.4 or above
+* Node.js v14 or above
 
 ## Embroider
 
