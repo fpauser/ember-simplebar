@@ -1,6 +1,7 @@
-@import "utils.css";
+@import url("utils.css");
 
-html, body {
+html,
+body {
   font-size: 1em;
   font-family: sans-serif;
   line-height: 2;
@@ -15,5 +16,5 @@ h1 {
 
 .custom-track .simplebar-track.simplebar-vertical,
 .custom-track .simplebar-track.simplebar-horizontal {
-  background: rgba(200,200,200,.125);
+  background: rgb(200 200 200 / 12.5%);
 }
